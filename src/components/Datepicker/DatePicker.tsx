@@ -1,23 +1,13 @@
-import { Calendar } from "./Calendar";
+import { Calendar, CalendarProps } from "./Calendar";
 
 import styles from "./Datepicker.module.css";
 
-type Props = {
-  selectedDate: Date | null;
-  disableBefore?: Date;
-  disableAfter?: Date;
-  onChange: (date: Date | null) => void;
-};
+type Props = Omit<CalendarProps, "dateRange">;
 
 function DatePicker({ selectedDate, disableBefore, disableAfter, onChange }: Props) {
   return (
     <div className={styles.datePicker}>
-      <Calendar
-        selectedDate={selectedDate}
-        disableBefore={disableBefore}
-        disableAfter={disableAfter}
-        onChange={onChange}
-      />
+      <Calendar selectedDate={selectedDate} disableBefore={disableBefore} disableAfter={disableAfter} onChange={onChange} />
     </div>
   );
 }

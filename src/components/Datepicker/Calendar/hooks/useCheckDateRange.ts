@@ -1,11 +1,7 @@
 import { useEffect, useRef } from "react";
+import { CalendarProps } from "..";
 
-type Options = {
-  selectedDate: Date | null;
-  disableBefore?: Date;
-  disableAfter?: Date;
-  onChange: (date: Date | null) => void;
-}
+type Options = Pick<CalendarProps, 'selectedDate' | 'disableBefore' | 'disableAfter' | 'onChange'>
 
 export function useCheckDateRange({ selectedDate, disableBefore, disableAfter, onChange }: Options) {
   const onChangeRef = useRef(onChange);

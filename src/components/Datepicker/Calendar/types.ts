@@ -6,21 +6,17 @@ export type Props = {
   onChange: (date: Date | null) => void;
 };
 
-export type DateClassNameOptions = {
+export type DateClassNameOptions = Pick<Props, 'selectedDate' | 'disableBefore' | 'disableAfter'> & {
   isInMonth: boolean;
   date: Date;
-  selectedDate: Date | null;
-  disableBefore?: Date;
-  disableAfter?: Date;
 };
 
-export type BackArrowClassNameOptions = {
-  disableBefore?: Date;
+export type BackArrowClassNameOptions = Pick<Props, 'disableBefore'> & {
   shownYear: number;
   shownMonth: number;
 };
 
-export type ForwardArrowClassNameOptions = {
+export type ForwardArrowClassNameOptions = Pick<Props, 'disableAfter'> & {
   disableAfter?: Date;
   shownYear: number;
   shownMonth: number;

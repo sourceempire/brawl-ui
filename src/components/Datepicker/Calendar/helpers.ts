@@ -22,8 +22,6 @@ export function isSameDay(date1: Date, date2: Date): boolean {
   );
 }
 
-
-
 export function isDateBefore(targetDate: Date, referenceDate: Date): boolean {
   const targetDateCopy = new Date(targetDate);
   const referenceDateCopy = new Date(referenceDate);

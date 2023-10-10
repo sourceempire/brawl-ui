@@ -1,5 +1,5 @@
 import { useDaysInMonth } from "./hooks/useDaysInMonth";
-import { ChevronLeft, ChevronRight } from "..";
+
 import { BackArrowClassNameOptions, DateClassNameOptions, ForwardArrowClassNameOptions, Props } from "./types";
 import {
   getDateKey,
@@ -11,9 +11,12 @@ import {
   monthNames,
   weekDays,
 } from "./helpers";
-import styles from "./Calendar.module.css";
 import { useCheckDateRange } from "./hooks/useCheckDateRange";
 import { useMonthNavigation } from "./hooks/useMonthNavigaton";
+import { ChevronLeft, ChevronRight } from "../../Icons";
+import { classNames } from "../../../utils/classNames";
+
+import styles from "./Calendar.module.css";
 
 export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }: Props) {
   useCheckDateRange({ selectedDate, disableAfter, disableBefore, onChange });
@@ -68,13 +71,13 @@ function getDateClassName({ isInMonth, date, selectedDate, disableBefore, disabl
   const isDisabled =
     (disableBefore ? isDateBefore(date, disableBefore) : false) || (disableAfter ? isDateAfter(date, disableAfter) : false);
 
-  return (
-    `${styles.date} ` +
-    `${isDisabled ? styles.disabled : ""} ` +
-    `${!isInMonth ? styles.hidden : ""} ` +
-    `${isToday ? styles.today : ""} ` +
-    `${isSelected ? styles.selected : ""}`
-  );
+  return classNames({
+    [styles.date]: true, // Always include styles.date
+    [styles.disabled]: isDisabled,
+    [styles.hidden]: !isInMonth,
+    [styles.today]: isToday,
+    [styles.selected]: isSelected,
+  });
 }
 
 function getBackArrowClassName(options: BackArrowClassNameOptions): string {
@@ -83,7 +86,10 @@ function getBackArrowClassName(options: BackArrowClassNameOptions): string {
   const firstDateOfCurrentMonth = new Date(shownYear, shownMonth, 1);
   const isBackButtonHidden = disableBefore ? isMonthBeforeOrSame(firstDateOfCurrentMonth, disableBefore) : false;
 
-  return `${styles.arrowContainer}` + ` ${isBackButtonHidden ? styles.hidden : ""}`;
+  return classNames({
+    [styles.arrowContainer]: true,
+    [styles.hidden]: isBackButtonHidden,
+  });
 }
 
 function getForwardArrowClassName(options: ForwardArrowClassNameOptions): string {
@@ -92,5 +98,9 @@ function getForwardArrowClassName(options: ForwardArrowClassNameOptions): string
   const lastDateOfCurrentMonth = new Date(shownYear, shownMonth + 1, 0);
   const isForwardButtonHidden = disableAfter ? isMonthAfterOrSame(lastDateOfCurrentMonth, disableAfter) : false;
 
-  return `${styles.arrowContainer}` + ` ${isForwardButtonHidden ? styles.hidden : ""}`;
+  return classNames({
+    [styles.arrowContainer]: true,
+    [styles.hidden]: isForwardButtonHidden,
+  });
 }
+
