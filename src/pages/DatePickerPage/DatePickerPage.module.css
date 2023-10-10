@@ -1,3 +1,15 @@
 .selectedDate {
     margin-bottom: 20px;
 }
+
+.testSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testSection .header {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 6px;
+}

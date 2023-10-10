@@ -2,6 +2,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import { ButtonPage, DatePickerPage } from "./pages";
 import { Button, DatePicker } from "./components";
+import { useState } from "react";
 
 const components = [
   {
@@ -12,12 +13,16 @@ const components = [
   {
     name: "DatePicker",
     ComponentPage: DatePickerPage,
-    Component: () => <DatePicker onChange={() => null} />,
+    Component: () => {
+      const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+      return <DatePicker onChange={setSelectedDate} selectedDate={selectedDate} />;
+    },
   },
 ];
 
 function App() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const { pathname } = useLocation();
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {

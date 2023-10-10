@@ -1,6 +1,10 @@
 # Brawl component library
 
-## Theme variables
+## TODO
+
+- Create utility function to concat classnames instead of spaces, spaces will cause bugs if forgotten;
+
+### Theme variables
 
 <!--THEME_START-->
 ```css
