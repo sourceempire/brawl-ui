@@ -1,0 +1,83 @@
+.datePicker {
+  --date-size: 46px;
+
+  display: inline-block;
+  background-color: var(--color-surface);
+  padding: var(--spacing-base-x2);
+  border-radius: var(--border-radius-special);
+
+  font-family: "DM Sans";
+  
+}
+
+.monthAndYear {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 20px;
+}
+
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.arrowContainer:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.arrow {
+  height: 16px;
+  width: 16px;
+}
+
+.dayName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 100;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, var(--date-size));
+  grid-auto-rows: var(--date-size);
+  gap: 3px;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.date:hover {
+  border: 1px solid white;
+}
+
+.date.selected {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark-primary);
+  cursor: default;
+}
+
+.date.selected:hover {
+  border: none;
+}
+
+.inactive {
+  pointer-events: none;
+  opacity: 0;
+}
