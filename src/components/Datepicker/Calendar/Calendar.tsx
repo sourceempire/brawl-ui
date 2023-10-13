@@ -17,6 +17,7 @@ import { ChevronLeft, ChevronRight } from "../../Icons";
 import { classNames } from "../../../utils/classNames";
 
 import styles from "./Calendar.module.css";
+import { Button } from "../..";
 
 export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }: CalendarProps) {
   useCheckDateRange({ selectedDate, disableAfter, disableBefore, onChange });
@@ -60,6 +61,7 @@ export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }
           );
         })}
       </div>
+      <Button className={styles.clearButton} onClick={() => onChange(null)}>Clear</Button>
     </div>
   );
 }

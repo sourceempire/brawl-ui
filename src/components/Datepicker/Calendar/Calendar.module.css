@@ -1,5 +1,5 @@
 .calendar {
-  --date-size: 46px;
+  --date-size: 40px;
 }
 
 .monthAndYear {
@@ -42,7 +42,7 @@
   display: grid;
   grid-template-columns: repeat(7, var(--date-size));
   grid-auto-rows: var(--date-size);
-  gap: 3px;
+  gap: 5px;
 }
 
 .date {
@@ -82,4 +82,8 @@
 .date.hidden, .arrowContainer.hidden {
   pointer-events: none;
   opacity: 0;
+}
+
+.clearButton {
+  margin-top: var(--spacing-base-x2);
 }

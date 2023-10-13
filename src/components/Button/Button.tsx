@@ -1,10 +1,18 @@
-import './Button.module.css'
+import styles from "./Button.module.css";
+
+type ButtonVariant = "primary" | "secondary" | "accent" | "surfaceSecondary";
 
 type Props = {
-    children: React.ReactNode
-    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-}
+  children: React.ReactNode;
+  className?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  variant?: ButtonVariant;
+};
 
-export function Button(props: Props) {
-    return (<button onClick={props.onClick}>{props.children}</button>)
+export function Button({ children, className, variant = "secondary", onClick }: Props) {
+  return (
+    <button className={`${styles.button} ${styles[variant]} ${className}`} onClick={onClick}>
+      {children}
+    </button>
+  );
 }

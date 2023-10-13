@@ -26,6 +26,16 @@
   --color-surface-hover: hsl(240, 19%, 31%);
   --color-surface-active: hsl(240, 19%, 41%);
 
+  /* Used for normal buttons on surface elements (i.e. not primay or accent buttons), inputs and similar elements.*/
+  --color-surface-secondary: hsl(238, 19%, 34%);
+  --color-surface-secondary-hover: hsl(238, 19%, 44%);
+  --color-surface-secondary-active: hsl(238, 19%, 54%);
+
+  /* Used on elements witch is on top of a surface, also called “Surface on Surface”. */
+  --color-surface-element: hsl(240, 19%, 29%);
+  --color-surface-element-hover: hsl(240, 19%, 39%);
+  --color-surface-element-active: hsl(240, 19%, 49%);
+
   /** Text colors **/
   --color-text-light-primary: hsl(0, 0%, 100%);
   --color-text-light-secondary: hsla(0, 0%, 100%, 0.7);
@@ -36,15 +46,15 @@
   --color-text-dark-disabled: hsla(0, 0%, 0%, 0.38);
 
   /** Font styles **/
-  --font-default: 'DM Sans', sans-serif;
-  --font-stylised: 'Orbitron', sans-serif;
+  --font-default: "DM Sans", sans-serif;
+  --font-stylised: "Orbitron", sans-serif;
 
   --font-header: bold 20px var(--font-default);
   --font-stylized-header: bold 18px var(--font-stylised);
   --font-title: bold 13px var(--font-default);
   --font-body: normal 13px var(--font-default);
   --font-menu: normal 13px var(--font-default);
-  --font-button: normal 12px var(--font-default);
+  --font-button: normal 16px var(--font-default);
   --font-note: normal 12px var(--font-default);
 
   /** Spacing **/
@@ -61,5 +71,3 @@
   --border-radius-default: 3px;
   --border-radius-special: 12px;
 }
-
-
