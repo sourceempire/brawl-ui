@@ -1,6 +1,6 @@
 import { useDaysInMonth } from "./hooks/useDaysInMonth";
 
-import { BackArrowClassNameOptions, DateClassNameOptions, ForwardArrowClassNameOptions, Props } from "./types";
+import { BackArrowClassNameOptions, DateClassNameOptions, ForwardArrowClassNameOptions, CalendarProps } from "./types";
 import {
   getDateKey,
   isDateAfter,
@@ -18,7 +18,7 @@ import { classNames } from "../../../utils/classNames";
 
 import styles from "./Calendar.module.css";
 
-export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }: Props) {
+export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }: CalendarProps) {
   useCheckDateRange({ selectedDate, disableAfter, disableBefore, onChange });
   const { incrementMonth, decrementMonth, shownMonth, shownYear } = useMonthNavigation({ initialDate: selectedDate });
   const days = useDaysInMonth({ month: shownMonth, year: shownYear });
@@ -103,4 +103,3 @@ function getForwardArrowClassName(options: ForwardArrowClassNameOptions): string
     [styles.hidden]: isForwardButtonHidden,
   });
 }
-

@@ -64,7 +64,6 @@ export function isMonthAfterOrSame(
   );
 }
 
-
 export function getDateKey(date: Date): string {
   return `${date.getDate()}-${date.getMonth()}`;
 }

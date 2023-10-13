@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { CalendarProps } from "..";
+import { CalendarProps } from "../types";
 
 type Options = Pick<CalendarProps, 'selectedDate' | 'disableBefore' | 'disableAfter' | 'onChange'>
 
