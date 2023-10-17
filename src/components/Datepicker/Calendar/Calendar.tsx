@@ -40,7 +40,7 @@ export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }
 
       <div className={styles.dates}>
         {Array.from({ length: 7 }).map((_, index) => (
-          <div className={styles.dayName}>{weekDays[index]}</div>
+          <div className={styles.dayName} key={index}>{weekDays[index]}</div>
         ))}
       </div>
 
