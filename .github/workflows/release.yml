@@ -28,21 +28,25 @@ jobs:
           npm ci
           npm run build
 
-      - name: Commit and push dist folder
+      - name: Create Temporary Branch
+        run: |
+          git checkout -b release-${{ github.event.inputs.version }}
+
+      - name: Commit dist folder
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add dist
           git commit -m "Update dist folder for release ${{ github.event.inputs.version }}"
 
+      - name: Push Temporary Branch
+        run: |
+          git push origin release-${{ github.event.inputs.version }}
+
       - name: Create Release Tag
         run: |
           git tag ${{ github.event.inputs.version }}
           git push origin ${{ github.event.inputs.version }}
-
-      - name: Push changes to repository
-        run: |
-          git push
 
       - name: Create GitHub Release
         id: create_release
@@ -55,3 +59,7 @@ jobs:
           body: |
             Changes in this release:
             - ...
+
+      - name: Delete Temporary Branch
+        run: |
+          git push origin --delete release-${{ github.event.inputs.version }}
