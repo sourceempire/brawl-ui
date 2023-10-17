@@ -65,13 +65,13 @@ jobs:
       - name: Create Release Tag
         run: |
           git tag v${{ env.NEW_VERSION }}
-          git push origin ${{ env.NEW_VERSION }}
+          git push origin v${{ env.NEW_VERSION }}
 
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1.13.0
         with:
-          tag: ${{ env.NEW_VERSION }}
-          name: Release ${{ env.NEW_VERSION }}
+          tag: v${{ env.NEW_VERSION }}
+          name: Release v${{ env.NEW_VERSION }}
           body: |
             Changes in this release:
             - ...
