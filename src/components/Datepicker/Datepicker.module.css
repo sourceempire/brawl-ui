@@ -2,6 +2,6 @@
   background-color: var(--color-surface);
   padding: var(--spacing-base-x2);
   border-radius: var(--border-radius-special);
-  font-family: "DM Sans";
   width: min-content;
+  height: min-content;
 }
