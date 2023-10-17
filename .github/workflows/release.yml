@@ -28,12 +28,21 @@ jobs:
           npm ci
           npm run build
 
-      - name: Create Release Tag
+      - name: Commit and push dist folder
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          git add dist
+          git commit -m "Update dist folder for release ${{ github.event.inputs.version }}"
+
+      - name: Create Release Tag
+        run: |
           git tag ${{ github.event.inputs.version }}
           git push origin ${{ github.event.inputs.version }}
+
+      - name: Push changes to repository
+        run: |
+          git push
 
       - name: Create GitHub Release
         id: create_release
