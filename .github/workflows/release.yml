@@ -60,18 +60,18 @@ jobs:
 
       - name: Push Temporary Branch
         run: |
-          git push origin release-${{ github.event.inputs.version }}
+          git push origin release-v${{ env.NEW_VERSION }}
 
       - name: Create Release Tag
         run: |
           git tag ${{ github.event.inputs.version }}
-          git push origin ${{ github.event.inputs.version }}
+          git push origin ${{ env.NEW_VERSION }}
 
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1.13.0
         with:
-          tag: ${{ github.event.inputs.version }}
-          name: Release ${{ github.event.inputs.version }}
+          tag: ${{ env.NEW_VERSION }}
+          name: Release ${{ env.NEW_VERSION }}
           body: |
             Changes in this release:
             - ...
@@ -79,4 +79,4 @@ jobs:
 
       - name: Delete Temporary Branch
         run: |
-          git push origin --delete release-${{ github.event.inputs.version }}
+          git push origin --delete release-v${{ env.NEW_VERSION }}
