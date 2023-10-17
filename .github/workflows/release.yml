@@ -28,6 +28,10 @@ jobs:
           npm ci
           npm run build
 
+      - name: Create zip file
+        run: |
+          zip -r dist.zip dist
+
       - name: Create Release Tag
         run: |
           git config user.name "GitHub Actions"
