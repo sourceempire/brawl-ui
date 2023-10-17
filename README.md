@@ -10,6 +10,8 @@ npm install git+ssh://git@github.com:sourceempire/brawl-ui.git#semver:v<x.x.x>
 
 Replace <x.x.x> with the desired version, though it's recommended to use the latest version.
 
+For the latest version, check the [releases section](https://github.com/sourceempire/brawl-ui/releases) of this repository.
+
 ## Styling
 
 To ensure proper styling of the components, import the provided CSS file in a root file of your project:
