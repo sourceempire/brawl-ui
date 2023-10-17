@@ -5,9 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist/**/*",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
   "type": "module",
   "scripts": {
