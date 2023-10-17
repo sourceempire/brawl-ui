@@ -68,7 +68,7 @@ jobs:
           git push origin v${{ env.NEW_VERSION }}
 
       - name: Create GitHub Release
-        uses: ncipollo/release-action@v1.13.0
+        uses: ncipollo/release-action@v1
         with:
           tag: v${{ env.NEW_VERSION }}
           name: Release v${{ env.NEW_VERSION }}
