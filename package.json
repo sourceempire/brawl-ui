@@ -4,7 +4,11 @@
   "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
