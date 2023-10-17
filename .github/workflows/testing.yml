@@ -1,4 +1,4 @@
-name: Manual Release test
+name: Manual Release
 
 on: 
   workflow_dispatch:
@@ -28,14 +28,34 @@ jobs:
           npm ci
           npm run build
 
-      - name: Create zip file
+      - name: Create Temporary Branch
         run: |
-          zip -r dist.zip dist
+          git checkout -b release
 
-      - name: Release & Assets
-        uses: Hs1r1us/Release-AIO@v2.0.0
+      - name: Temporarily unignore dist directory
+        run: |
+          sed -i '/dist/d' .gitignore
+
+      - name: Commit and push dist folder
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add dist
+          git commit -m "Update dist folder"
+          git push origin release
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.version }}
-          asset_files: './dist.zip'
+          release_name: Release ${{ github.event.inputs.version }}
+          body: |
+            Changes in this release:
+            - ...
+
+      - name: Delete Temporary Branch
+        run: |
+          git push origin --delete release
