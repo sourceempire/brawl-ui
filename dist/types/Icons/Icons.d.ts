@@ -1,0 +1,37 @@
+export declare const Icons: {
+    ChevronRight: IconType;
+    ChevronLeft: IconType;
+    Bell: IconType;
+    Users: IconType;
+    UserMinus: IconType;
+    UserPlus: IconType;
+    Star: IconType;
+    Plus: IconType;
+    PartyPopper: IconType;
+    ChevronDown: IconType;
+    ChevronUp: IconType;
+    Cross: IconType;
+    Calendar: IconType;
+    Check: IconType;
+    Settings: IconType;
+    Clock: IconType;
+    GamePad: IconType;
+    Copy: IconType;
+    Swords: IconType;
+    CrossHair: IconType;
+    Filter: IconType;
+    KeyRound: IconType;
+    Lock: IconType;
+    Unlock: IconType;
+    User: IconType;
+    Search: IconType;
+    FlipVertical: IconType;
+    Sword: IconType;
+    Ticket: IconType;
+    Trophy: IconType;
+};
+export declare const GameIcons: {
+    MineExplosion: IconType;
+    BoltCutter: IconType;
+    DeathSkull: IconType;
+};
