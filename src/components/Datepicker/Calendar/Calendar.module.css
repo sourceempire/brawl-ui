@@ -27,6 +27,15 @@
 .arrow {
   height: 20px;
   width: 20px;
+  position: relative;
+}
+
+.arrow.back {
+  right: 1px;
+}
+
+.arrow.forward {
+  left: 1px;
 }
 
 .dayName {

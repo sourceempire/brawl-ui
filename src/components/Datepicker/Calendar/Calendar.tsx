@@ -13,7 +13,7 @@ import {
 } from "./helpers";
 import { useCheckDateRange } from "./hooks/useCheckDateRange";
 import { useMonthNavigation } from "./hooks/useMonthNavigaton";
-import { ChevronLeft, ChevronRight } from "../../Icons";
+import { Icons } from "../../Icons";
 import { classNames } from "../../../utils/classNames";
 
 import styles from "./Calendar.module.css";
@@ -28,13 +28,13 @@ export function Calendar({ selectedDate, disableBefore, disableAfter, onChange }
     <div className={styles.calendar}>
       <div className={styles.monthAndYear}>
         <div className={getBackArrowClassName({ shownMonth, shownYear, disableBefore })} onClick={decrementMonth}>
-          <ChevronLeft className={styles.arrow} />
+          <Icons.ChevronLeft className={classNames({[styles.arrow]: true, [styles.back]: true})} />
         </div>
         <div>
           {monthNames[shownMonth]} {shownYear}
         </div>
         <div className={getForwardArrowClassName({ shownMonth, shownYear, disableAfter })} onClick={incrementMonth}>
-          <ChevronRight className={styles.arrow} />
+          <Icons.ChevronRight className={classNames({[styles.arrow]: true, [styles.forward]: true})}  />
         </div>
       </div>
 
