@@ -4,7 +4,7 @@
 
 Install Brawl-UI using npm with the following command:
 
-```markdown
+```bash
 npm install git+ssh://git@github.com:sourceempire/brawl-ui.git#semver:v<x.x.x>
 ```
 
