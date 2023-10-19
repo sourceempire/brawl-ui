@@ -5,3 +5,7 @@
   width: min-content;
   height: min-content;
 }
+
+.clearButton {
+  margin-top: var(--spacing-base-x2);
+}

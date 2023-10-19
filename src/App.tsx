@@ -3,6 +3,8 @@ import "./App.css";
 import { ButtonPage, DatePickerPage } from "./pages";
 import { Button, DatePicker } from "./components";
 import { useState } from "react";
+import { DateRangePickerPage } from "./pages/DateRangePickerPage/DateRangePickerPage";
+import { DateRangePicker } from "./components/DateRangePicker";
 
 const components = [
   {
@@ -19,6 +21,13 @@ const components = [
       return <DatePicker onChange={setSelectedDate} selectedDate={selectedDate} />;
     },
   },
+  {
+    name: "DateRangePicker",
+    ComponentPage: DateRangePickerPage,
+    Component: () => {
+      return <DateRangePicker />
+    }
+  }
 ];
 
 function App() {
@@ -30,7 +39,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="app">
       <header className="header">
         <select
           onChange={handleChange}
@@ -73,7 +82,7 @@ function App() {
           </Routes>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

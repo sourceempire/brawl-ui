@@ -1,3 +1,5 @@
+import { DateRange, NullableDate } from "./types";
+
 export const weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 export const monthNames = [
   "January",
@@ -68,10 +70,32 @@ export function getDateKey(date: Date): string {
   return `${date.getDate()}-${date.getMonth()}`;
 }
 
-export function getInitialYear(date: Date | null) {
+export function getInitialYear(date: NullableDate) {
   return (date ?? new Date()).getFullYear();
 }
 
-export function getInitialMonth(date: Date | null) {
+export function getInitialMonth(date: NullableDate) {
   return (date ?? new Date()).getMonth();
+}
+
+export function isDateInRange(date: Date, range: DateRange) {
+  const startDate = range[0];
+  const endDate = range[1];
+
+  if (!startDate || !endDate) return false;
+
+  return !(
+    (startDate && isDateBefore(date, startDate)) ||
+    (endDate && isDateAfter(date, endDate))
+  )
+}
+
+export function isFirstDayOfMonth(date: Date): boolean {
+  return date.getDate() === 1;
+}
+
+export function isLastDayOfMonth(date: Date): boolean {
+  const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+  const lastDayOfMonth = new Date(nextMonth.getTime() - 86400000);  // subtract one day in milliseconds
+  return date.getDate() === lastDayOfMonth.getDate();
 }
