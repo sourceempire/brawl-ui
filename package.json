@@ -1,6 +1,5 @@
 {
   "name": "@sourceempire/brawl-ui",
-  "private": true,
   "version": "1.0.4",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
