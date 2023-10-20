@@ -1,5 +1,5 @@
 {
-  "name": "brawl-ui",
+  "name": "@sourceempire/brawl-ui",
   "private": true,
   "version": "1.0.4",
   "main": "dist/index.umd.js",
@@ -8,6 +8,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sourceempire/brawl-ui.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

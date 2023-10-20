@@ -29,6 +29,7 @@ export function DatePickerPage() {
           <div>
             <p className={styles.header}>Selected date:</p>
             <p>{selectedDate?.toDateString()}</p>
+            <p>{selectedDate?.getHours()}</p>
           </div>
 
           <div>

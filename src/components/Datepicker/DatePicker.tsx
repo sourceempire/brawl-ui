@@ -1,4 +1,3 @@
-import { Button } from "..";
 import { Calendar} from "../../utils/components/Calendar";
 import styles from "./Datepicker.module.css";
 
@@ -13,7 +12,6 @@ export function DatePicker({ selectedDate, disableBefore, disableAfter, onChange
   return (
     <div className={styles.datePicker}>
       <Calendar selectedDate={selectedDate} disableBefore={disableBefore} disableAfter={disableAfter} onChange={onChange} />
-      <Button className={styles.clearButton} onClick={() => onChange(null)}>Clear</Button>
     </div>
   );
 }

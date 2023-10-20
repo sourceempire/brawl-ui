@@ -30,6 +30,7 @@ export function useDaysInMonth({ month, year }: Options): DaysOfMonth {
     endPadDate.setDate(endPadDate.getDate() + (7 - endPadDate.getDay()));
   }
 
+
   for (let date = new Date(startPadDate); date <= endPadDate; date.setDate(date.getDate() + 1)) {
     result.push({
       isInMonth: date >= firstDate && date <= lastDate,

@@ -1,5 +1,8 @@
 .calendar {
   --date-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .monthAndYear {
@@ -130,5 +133,11 @@
 .dateNumber.hidden, .arrowContainer.hidden, .inRange.hidden {
   pointer-events: none;
   opacity: 0;
+}
+
+.dateTimeDivider {
+  margin-top: var(--spacing-base-x2);
+  height: 1px;
+  background-color: var(--color-surface-secondary);
 }
 

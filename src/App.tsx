@@ -1,10 +1,9 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
-import { ButtonPage, DatePickerPage } from "./pages";
-import { Button, DatePicker } from "./components";
+import { ButtonPage, DatePickerPage, DateRangePickerPage } from "./pages";
+import { Button, DatePicker, DateRangePicker } from "./components";
 import { useState } from "react";
-import { DateRangePickerPage } from "./pages/DateRangePickerPage/DateRangePickerPage";
-import { DateRangePicker } from "./components/DateRangePicker";
+import {} from "./pages/DateRangePickerPage/DateRangePickerPage";
 
 const components = [
   {
@@ -25,13 +24,15 @@ const components = [
     name: "DateRangePicker",
     ComponentPage: DateRangePickerPage,
     Component: () => {
-      return <DateRangePicker />
-    }
-  }
+      const [date1, setDate1] = useState<Date | null>(null);
+      const [date2, setDate2] = useState<Date | null>(null);
+      return <DateRangePicker date1={date1} date2={date2} onDate1Change={setDate1} onDate2Change={setDate2} />;
+    },
+  },
 ];
 
 function App() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -41,11 +42,7 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <select
-          onChange={handleChange}
-          defaultValue={pathname.slice(1)}
-          placeholder="Choose component"
-        >
+        <select onChange={handleChange} defaultValue={pathname.slice(1)} placeholder="Choose component">
           <option value="">All components</option>
           {components.map(({ name }) => {
             return (
@@ -71,13 +68,7 @@ function App() {
         {pathname !== "/" && (
           <Routes>
             {components.map(({ name, ComponentPage }) => {
-              return (
-                <Route
-                  path={name.toLowerCase()}
-                  element={<ComponentPage />}
-                  key={name}
-                />
-              );
+              return <Route path={name.toLowerCase()} element={<ComponentPage />} key={name} />;
             })}
           </Routes>
         )}
