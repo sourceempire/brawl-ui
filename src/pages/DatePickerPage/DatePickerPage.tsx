@@ -6,6 +6,7 @@ export function DatePickerPage() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [disableAfter, setDisableAfter] = useState<Date>();
   const [disableBefore, setDisableBefore] = useState<Date>();
+  const [includeTime, setIncludeTime] = useState(false);
 
   const onDisableBeforeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDisableBefore(new Date(e.target.value));
@@ -13,6 +14,10 @@ export function DatePickerPage() {
 
   const onDisableAfterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDisableAfter(new Date(e.target.value));
+  };
+
+  const onIncludeTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIncludeTime(e.target.checked);
   };
 
   return (
@@ -24,12 +29,16 @@ export function DatePickerPage() {
           selectedDate={selectedDate}
           disableBefore={disableBefore}
           disableAfter={disableAfter}
+          includeTime={includeTime}
         />
         <div className={styles.testSection}>
           <div>
-            <p className={styles.header}>Selected date:</p>
-            <p>{selectedDate?.toDateString()}</p>
-            <p>{selectedDate?.getHours()}</p>
+            <p className={styles.header}>Date2:</p>
+            <div>
+              <p>{selectedDate ? `${selectedDate.toDateString()} - ${selectedDate?.toLocaleTimeString()}` : "-"}</p>
+              ---
+              <p>{selectedDate ? selectedDate.toISOString() : "-"}</p>
+            </div>
           </div>
 
           <div>
@@ -40,6 +49,14 @@ export function DatePickerPage() {
           <div>
             <p className={styles.header}>Disable After</p>
             <input type="date" onChange={onDisableAfterChange} />
+          </div>
+
+          <div>
+            <p className={styles.header}>Time</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <input type="checkbox" onChange={onIncludeTimeChange} style={{ margin: 0 }} />
+              <label>Include time</label>
+            </div>
           </div>
         </div>
       </div>

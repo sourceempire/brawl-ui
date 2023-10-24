@@ -6,6 +6,7 @@ export type CalendarProps = {
   disableBefore?: NullableDate;
   disableAfter?: NullableDate;
   dateRange?: DateRange;
+  includeTime?: boolean;
   onChange: (date: NullableDate) => void;
 };
 
@@ -24,3 +25,5 @@ export type ForwardArrowClassNameOptions = Pick<CalendarProps, "disableAfter"> &
   shownYear: number;
   shownMonth: number;
 };
+
+export const EMPTY_TIME_STRING = "--"
