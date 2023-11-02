@@ -123,8 +123,6 @@ export function getInRangeClassName({
   date,
   dateRange,
   isInMonth,
-  shownMonth,
-  shownYear,
 }: {
   date: Date;
   dateRange?: DateRange;
@@ -138,33 +136,15 @@ export function getInRangeClassName({
   const isStartDate = startDate ? isSameDay(date, startDate) : false;
   const isEndDate = endDate ? isSameDay(date, endDate) : false;
 
-  const isNotInMonthAndNotLastDayOfPrevMonth = !isInMonth && !isLastDayOfMonth(date);
-  const isNotInMonthAndNotFirstDayOfNextMonth = !isInMonth && !isFirstDayOfMonth(date);
-
-  const isEndDateLastDayOfPreviousMonth = endDate
-    ? (endDate.getMonth() === 11 && shownMonth === 0 && endDate.getFullYear() === shownYear - 1 && isLastDayOfMonth(endDate)) ||
-      (endDate.getMonth() === shownMonth - 1 && endDate.getFullYear() === shownYear && isLastDayOfMonth(endDate))
-    : false;
-
-  const isStartDateFirstDayOfNextMonth = startDate
-    ? (startDate.getMonth() === 0 &&
-        shownMonth === 11 &&
-        startDate.getFullYear() === shownYear + 1 &&
-        isFirstDayOfMonth(startDate)) ||
-      (startDate.getMonth() === shownMonth + 1 && startDate.getFullYear() === shownYear && isFirstDayOfMonth(startDate))
-    : false;
-
   return classNames({
     [styles.inRange]: isInRange,
     [styles.startDate]: isStartDate,
     [styles.endDate]: isEndDate,
-    [styles.hidden]:
-      (isNotInMonthAndNotLastDayOfPrevMonth && isNotInMonthAndNotFirstDayOfNextMonth) ||
-      isEndDateLastDayOfPreviousMonth ||
-      isStartDateFirstDayOfNextMonth,
-    [styles.lastDayOfPreviousMonth]: shownMonth !== date.getMonth() && isLastDayOfMonth(date),
-    [styles.firstDayOfNextMonth]: shownMonth !== date.getMonth() && isFirstDayOfMonth(date),
-
+    [styles.hidden]: !isInMonth,
+    [styles.lastDayOfMonth]: isInMonth && isLastDayOfMonth(date),
+    [styles.firstDayOfMonth]: isInMonth && isFirstDayOfMonth(date),
+    [styles.lastDayOfWeek]: date.getDay() === 0, // Sunday
+    [styles.firstDayOfWeek]: date.getDay() === 1, // Monday
   });
 }
 

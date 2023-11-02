@@ -1,5 +1,9 @@
 import { IconType } from "react-icons";
 
+import { LuArrowDown as ArrowDown } from "react-icons/lu";
+import { LuArrowLeft as ArrowLeft } from "react-icons/lu";
+import { LuArrowRight as ArrowRight } from "react-icons/lu";
+import { LuArrowUp as ArrowUp } from "react-icons/lu";
 import { LuBell as Bell } from "react-icons/lu";
 import { LuCalendar as Calendar } from "react-icons/lu";
 import { LuCheck as Check } from "react-icons/lu";
@@ -36,6 +40,10 @@ import { GiDeathSkull as DeathSkull } from "react-icons/gi";
 import { GiMineExplosion as MineExplosion } from "react-icons/gi";
 
 export const Icons: Record<string, IconType> = {
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
   Bell,
   Calendar,
   Check,

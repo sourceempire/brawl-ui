@@ -1,10 +1,11 @@
 .button {
   color: var(--color-text-light-primary);
   font: var(--font-button);
-  border-radius: var(--border-radius-default);
+  border-radius: var(--border-radius-round);
   height: 36px;
   padding: 0 var(--spacing-base-x2);
   border: none;
+  cursor: pointer;
 }
 
 .primary {

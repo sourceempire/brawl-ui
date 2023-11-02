@@ -7,6 +7,7 @@ export type CalendarProps = {
   disableAfter?: NullableDate;
   dateRange?: DateRange;
   includeTime?: boolean;
+  setTimeToEndOfDay?: boolean;
   onChange: (date: NullableDate) => void;
 };
 

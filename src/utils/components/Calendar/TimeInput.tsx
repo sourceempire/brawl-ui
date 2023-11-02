@@ -64,6 +64,7 @@ export function TimeInput({ date, onChange }: Props) {
         disabled={!date}
         onFocus={onHourFocus}
         onKeyDown={handleHourKeyDown}
+        readOnly
       />
       :
       <input
@@ -73,6 +74,7 @@ export function TimeInput({ date, onChange }: Props) {
         disabled={!date}
         onFocus={onMinuteFocus}
         onKeyDown={handleMinuteKeyDown}
+        readOnly
       />
     </div>
   );

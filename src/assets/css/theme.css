@@ -68,6 +68,9 @@
   --spacing-base-x8: calc(var(--spacing-base) * 8);
 
   /** Border radius **/
-  --border-radius-default: 3px;
-  --border-radius-special: 12px;
+  --border-radius-default: 12px;
+  --border-radius-round: 100px;
+
+  --element-height-sm: 30px;
+  --element-height-lg: 36px;
 }

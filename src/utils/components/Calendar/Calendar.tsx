@@ -10,7 +10,6 @@ import {
   monthNames,
   weekDays,
 } from "./helpers";
-import { useCheckDateRange } from "./hooks/useCheckDateRange";
 import { useMonthNavigation } from "./hooks/useMonthNavigaton";
 import { Icons } from "../../../components/Icons";
 import { classNames } from "../../functions/classNames";
@@ -18,26 +17,33 @@ import { classNames } from "../../functions/classNames";
 import styles from "./Calendar.module.css";
 import { TimeInput } from ".";
 
-export function Calendar({ selectedDate, disableBefore, disableAfter, onChange, dateRange, includeTime }: CalendarProps) {
-  useCheckDateRange({ selectedDate, disableAfter, disableBefore, onChange, includeTime });
-  
+export function Calendar({
+  selectedDate,
+  disableBefore,
+  disableAfter,
+  onChange,
+  dateRange,
+  includeTime,
+  setTimeToEndOfDay,
+}: CalendarProps) {
   const { incrementMonth, decrementMonth, shownMonth, shownYear } = useMonthNavigation({ initialDate: selectedDate });
   const days = useDaysInMonth({ month: shownMonth, year: shownYear });
 
   const handleChange = (date: Date) => {
     const updatedDate = new Date(date);
 
-    if (selectedDate) {
-      updatedDate.setHours(selectedDate.getHours())
-      updatedDate.setMinutes(selectedDate.getMinutes())
+    if (!includeTime && setTimeToEndOfDay) {
+      updatedDate.setHours(23, 59, 59);
+    } else if (selectedDate) {
+      updatedDate.setHours(selectedDate.getHours(), selectedDate.getMinutes());
     }
 
     onChange(updatedDate);
-  }
+  };
 
   const handleTimeChange = (date: Date) => {
     onChange(date);
-  }
+  };
 
   return (
     <div className={styles.calendar}>
@@ -86,11 +92,13 @@ export function Calendar({ selectedDate, disableBefore, disableAfter, onChange, 
         </div>
       </div>
 
-      {includeTime && <div>
-        <div className={styles.dateTimeDivider} />
+      {includeTime && (
+        <div>
+          <div className={styles.dateTimeDivider} />
 
-        <TimeInput date={selectedDate} onChange={(date) => handleTimeChange(date)} />
-      </div>}
+          <TimeInput date={selectedDate} onChange={(date) => handleTimeChange(date)} />
+        </div>
+      )}
     </div>
   );
 }

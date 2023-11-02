@@ -12,9 +12,9 @@ type Props = {
   onDate2Change: (date: Date | null) => void;
 };
 
-export function DateRangePicker({ date1, date2, disableBefore, disableAfter, onDate1Change, onDate2Change, includeTime}: Props) {
-  const disableBeforeValid = disableBefore && (!date1 || (date1 && disableBefore < date1));
-  const disableAfterValid = disableAfter && (!date2 || (date2 && disableAfter > date2));
+export function DateRangePicker({ date1, date2, disableBefore, disableAfter, onDate1Change, onDate2Change, includeTime }: Props) {
+  const disableBeforeValid = disableBefore && date1 && disableBefore < date1;
+  const disableAfterValid = disableAfter && date2 && disableAfter > date2;
 
   return (
     <div className={classNames({ [styles.dateRangePicker]: true })}>
@@ -22,7 +22,7 @@ export function DateRangePicker({ date1, date2, disableBefore, disableAfter, onD
         selectedDate={date1}
         onChange={onDate1Change}
         disableAfter={date2 || (disableAfterValid ? disableAfter : undefined)}
-        disableBefore={disableBeforeValid ? disableBefore : undefined}
+        disableBefore={disableBefore}
         dateRange={[date1, date2]}
         includeTime={includeTime}
       />
@@ -30,10 +30,11 @@ export function DateRangePicker({ date1, date2, disableBefore, disableAfter, onD
       <Calendar
         selectedDate={date2}
         onChange={onDate2Change}
-        disableAfter={disableAfterValid ? disableAfter : undefined}
+        disableAfter={disableAfter}
         disableBefore={date1 || (disableBeforeValid ? disableBefore : undefined)}
         dateRange={[date1, date2]}
         includeTime={includeTime}
+        setTimeToEndOfDay
       />
     </div>
   );
