@@ -84,7 +84,7 @@
 .dateNumber.disabled {
   pointer-events: none;
   color: var(--color-text-light-disabled);
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .dateNumber.selected {
@@ -99,7 +99,7 @@
 .inRange {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   margin-left: -3px;
   margin-right: -3px;
 
