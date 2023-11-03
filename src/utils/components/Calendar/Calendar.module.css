@@ -90,7 +90,6 @@
 .dateNumber.selected {
   background-color: var(--color-accent);
   color: var(--color-text-dark-primary);
-  cursor: default;
 
   &:hover {
     outline: none;

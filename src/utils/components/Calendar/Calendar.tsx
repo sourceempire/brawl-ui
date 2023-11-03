@@ -7,6 +7,7 @@ import {
   getDateKey,
   getForwardArrowClassName,
   getInRangeClassName,
+  isSameDay,
   monthNames,
   weekDays,
 } from "./helpers";
@@ -31,6 +32,10 @@ export function Calendar({
 
   const handleChange = (date: Date) => {
     const updatedDate = new Date(date);
+
+    if (selectedDate && isSameDay(date, selectedDate)) {
+      return onChange(null);
+    }
 
     if (!includeTime && setTimeToEndOfDay) {
       updatedDate.setHours(23, 59, 59);
