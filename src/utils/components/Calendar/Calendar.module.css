@@ -84,7 +84,7 @@
 .dateNumber.disabled {
   pointer-events: none;
   color: var(--color-text-light-disabled);
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .dateNumber.selected {
