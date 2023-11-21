@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+// import { IconType } from "react-icons";
 
 import { LuArrowDown as ArrowDown } from "react-icons/lu";
 import { LuArrowLeft as ArrowLeft } from "react-icons/lu";
@@ -39,7 +39,7 @@ import { GiBoltCutter as BoltCutter } from "react-icons/gi";
 import { GiDeathSkull as DeathSkull } from "react-icons/gi";
 import { GiMineExplosion as MineExplosion } from "react-icons/gi";
 
-export const Icons: Record<string, IconType> = {
+export const Icons = {
   ArrowDown,
   ArrowLeft,
   ArrowRight,
@@ -76,7 +76,7 @@ export const Icons: Record<string, IconType> = {
   Users,
 };
 
-export const GameIcons: Record<string, IconType> = {
+export const GameIcons = {
   BoltCutter,
   DeathSkull,
   MineExplosion,

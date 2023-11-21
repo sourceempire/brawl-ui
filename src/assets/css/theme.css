@@ -12,7 +12,7 @@
   --color-accent-active: hsl(143, 65%, 85%);
 
   /* Used as the main background, or when necessary, as darker elements. */
-  --color-background: hsl(240, 19%, 17%);
+  --color-background: hsl(240, 20%, 17%);
   --color-background-hover: hsl(240, 19%, 27%);
   --color-background-active: hsl(240, 19%, 37%);
 
@@ -22,7 +22,7 @@
   --color-secondary-active: hsl(238, 19%, 46%);
 
   /* Used on surfaces such as cards and larger blocks. */
-  --color-surface: hsl(240, 19%, 21%);
+  --color-surface: hsl(240, 20%, 21%);
   --color-surface-hover: hsl(240, 19%, 31%);
   --color-surface-active: hsl(240, 19%, 41%);
 

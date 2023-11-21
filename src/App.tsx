@@ -1,9 +1,10 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import { ButtonPage, DatePickerPage, DateRangePickerPage } from "./pages";
-import { Button, DatePicker, DateRangePicker } from "./components";
+import { Button, DatePicker, DateRangePicker, Image } from "./components";
 import { useState } from "react";
 import {} from "./pages/DateRangePickerPage/DateRangePickerPage";
+import { ImagePage } from "./pages/ImagePage";
 
 const components = [
   {
@@ -27,6 +28,13 @@ const components = [
       const [date1, setDate1] = useState<Date | null>(null);
       const [date2, setDate2] = useState<Date | null>(null);
       return <DateRangePicker date1={date1} date2={date2} onDate1Change={setDate1} onDate2Change={setDate2} />;
+    },
+  },
+  {
+    name: "Image",
+    ComponentPage: ImagePage,
+    Component: () => {
+      return <Image src="" />;
     },
   },
 ];
