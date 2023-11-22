@@ -118,12 +118,15 @@
   &.firstDayOfMonth, &.firstDayOfWeek {
     border-top-left-radius: 21px;
     border-bottom-left-radius: 21px;
+    margin-left: 0;
   }
 
   &.lastDayOfMonth, &.lastDayOfWeek {
     border-top-right-radius: 21px;
     border-bottom-right-radius: 21px;
+    margin-right: 0;
   }
+
 }
 
 .dateNumber.hidden, .arrowContainer.hidden, .inRange.hidden {
